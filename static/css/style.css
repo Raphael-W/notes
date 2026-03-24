@@ -1,0 +1,49 @@
+body{
+            background-color: #1c1c1c;
+            padding-top: 5px;
+        }
+        textarea {
+        /* Size and layout */
+        width: calc(100vw - 20px);
+        height: calc(100vh - 30px);
+        padding: 5vh 3vw 5vh 3vw;
+        box-sizing: border-box;
+
+        /* Border and shadow */
+        border: 0 solid #ccc;
+        border-radius: 0;
+
+        /* Font and colors */
+        font-family: 'Roboto Mono', monospace;
+        font-size: 16px;
+        color: #c8c8c8;
+        background-color: #1c1c1c;
+
+        /* Interactions */
+        transition: all 0.3s ease;
+        outline: none;
+        resize: none;
+    }
+
+    textarea:focus {
+        border-color: transparent;
+    }
+
+        /* Custom scrollbar styles */
+    textarea::-webkit-scrollbar {
+        width: 10px; /* Set the width of the scrollbar */
+    }
+
+    textarea::-webkit-scrollbar-track {
+        background: #2a2a2a; /* Track background color */
+        border-radius: 10px;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        background-color: #555; /* Thumb color */
+        border-radius: 10px; /* Rounded corners for the thumb */
+    }
+
+    textarea::-webkit-scrollbar-thumb:hover {
+        background-color: #888; /* Thumb color on hover */
+    }
