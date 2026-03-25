@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shared Text Area</title>
+    <title>Notes</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -9,10 +9,31 @@
 </head>
 
 <body>
+    <a class="hollow corner" id="switch" onclick="switchView()">View</a>
+    <textarea id="rawText"></textarea>
+    <div style="display: none" class="md" id="md"></div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
-    <textarea id="sharedTextArea"></textarea>
+    <script src="{{ url_for('static', filename='js/mdRenderer.js') }}"></script>
 </body>
+<script>
+    const textArea = document.getElementById('rawText');
+    const mdArea = document.getElementById('md');
+    const switchButton = document.getElementById('switch');
 
+    function switchView() {
+      if (textArea.style.display === "none") {
+        textArea.style.display = "block";
+        mdArea.style.display = "none";
+        switchButton.innerText = "View";
+
+      }
+      else {
+        mdArea.style.display = "block";
+        textArea.style.display = "none";
+        switchButton.innerText = "Edit";
+      }
+    }
+</script>
 </html>
