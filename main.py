@@ -1,11 +1,15 @@
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO, emit
 import time
+from pathlib import Path
 
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-with open("text.md", "r") as file:
+notes_file = Path("text.md")
+notes_file.touch(exist_ok = True)
+
+with open(notes_file, "r") as file:
     currentText = "".join(file.readlines())
 
 @app.route('/')
